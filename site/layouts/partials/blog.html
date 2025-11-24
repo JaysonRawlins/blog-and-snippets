@@ -1,13 +1,25 @@
 <div class="bg-off-white pv4">
 	<div class="ph3 mw7 center">
 
-		<h2 class="f2 b lh-title mb3">Latest stories</h2>
+		<h2 class="f2 b lh-title mb3">Latest of my Dev.To Posts</h2>
 
 		<div class="w-100 flex-ns mhn1-ns flex-wrap mb3">
-			{{ range first 4 (where .Data.Pages "Type" "post") }}
-				<div class="ph1-ns w-50-ns flex">
-					{{ .Render "li" }}
-				</div>
+			{{/* Select only real blog posts (exclude section/list pages) */}}
+			{{ $posts := where .Site.RegularPages "Section" "post" }}
+			{{ $sorted := sort $posts "Date" "desc" }}
+			{{ with first 1 $sorted }}
+				{{ range . }}
+					<div class="ph1-ns w-100 flex">
+						<a href="{{ .RelPermalink }}" class="no-underline pa3 bg-grey-1 br1 mb2 db raise w-100">
+							<h2 class="f3 b lh-title mb1 primary">{{ .Title }}</h2>
+							<p class="mid-gray lh-title mb2">{{ .Date.Format "Mon, Jan 2, 2006" }}</p>
+							<div class="mb2">{{ .Summary }}</div>
+							<p class="link b dib black mb0">Read more →</p>
+						</a>
+					</div>
+				{{ end }}
+			{{ else }}
+				<p>No posts yet.</p>
 			{{ end }}
 		</div>
 

@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src cypress",
+    "fetch-posts": "node scripts/fetch-devto.js",
     "start": "run-p start:**",
     "start:hugo": "hugo -d ../dist -s site -vw",
     "start:webpack": "webpack-dev-server --config webpack.dev.js --hot",
@@ -71,6 +72,8 @@
     "netlify-plugin-cypress": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "to-string-loader": "^1.2.0"
+    "rss-parser": "^3.13.0",
+    "to-string-loader": "^1.2.0",
+    "turndown": "^7.2.2"
   }
 }
