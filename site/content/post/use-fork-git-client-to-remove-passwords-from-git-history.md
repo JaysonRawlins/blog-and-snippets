@@ -16,7 +16,7 @@ Fork is a git client that runs your git commands for you inside of an interface.
 Why I like Fork
 ---------------
 
-For provides a great deal of flexibility when setting up custom commands. The interface is decent and provides quick and easy GUI for all your Git needs.
+Fork UI provides a great deal of flexibility when setting up custom commands. The interface is decent and provides quick and easy GUI for all your Git needs.
 
 However, being able to setup your client to run various commands on the repo is very handy.
 
